@@ -8,6 +8,7 @@ public class InsuranceCampaignProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InsuranceCampaignProjectApplication.class, args);
+
 	}
 
 }
