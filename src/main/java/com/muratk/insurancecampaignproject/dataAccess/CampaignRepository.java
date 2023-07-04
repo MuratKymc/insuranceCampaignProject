@@ -11,5 +11,6 @@ public interface CampaignRepository extends JpaRepository<Campaign,Integer> {
 
     List<Campaign> findByCampaignCategoryAndCampaignsAdvertTitleAndCampaignsDetails(String category, String title, String details );
 
+    List<Campaign> findByCampaignsStatus(String campaignStatus);
 
 }

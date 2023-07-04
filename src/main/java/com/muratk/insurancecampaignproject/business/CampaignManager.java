@@ -73,5 +73,13 @@ public class CampaignManager implements CampaignService {
 
     }
 
+    //kampanya durumuna göre sayım yapma
+    @Override
+    public int countCampaignStatus(String campaignsStatus) {
+        List<Campaign> campaigns = campaignRepository.findByCampaignsStatus(campaignsStatus);
+        return campaigns.size();
+    }
+
+
 }
 

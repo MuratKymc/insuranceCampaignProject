@@ -11,6 +11,7 @@ public interface CampaignService {
     void addCampaign(Campaign campaign);
     Campaign makeActiveCampaign(int id);
     Campaign makeDeactivateCampaign(int id);
+    int countCampaignStatus(String campaignsStatus);
 
 
 
