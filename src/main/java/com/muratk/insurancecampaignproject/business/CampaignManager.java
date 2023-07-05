@@ -3,7 +3,9 @@ package com.muratk.insurancecampaignproject.business;
 import com.muratk.insurancecampaignproject.dataAccess.CampaignRepository;
 import com.muratk.insurancecampaignproject.entities.Campaign;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class CampaignManager implements CampaignService {
 
     //kampanya ekleme (create)
     @Override
-    public void addCampaign(Campaign campaign) {
+    public ResponseEntity<String> addCampaign(@RequestBody Campaign campaign) {
 
         //hayat sigortası haricindeki kampanyaların durumunun Onay bekliyor olarak belirlenmesi
         if (campaign.getCampaignCategory().equalsIgnoreCase("Hayat Sigortası")) {
@@ -46,6 +48,7 @@ public class CampaignManager implements CampaignService {
 
         this.campaignRepository.save(campaign);
 
+        return ResponseEntity.ok("Veri Eklendi.");
     }
 
 

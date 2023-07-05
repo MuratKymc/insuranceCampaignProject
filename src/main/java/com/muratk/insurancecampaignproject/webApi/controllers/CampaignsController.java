@@ -19,22 +19,28 @@ public class CampaignsController {
 
     @GetMapping("/getAllCampaigns")
     public List<Campaign> getAll(){
+
         return campaignService.getAll();
     }
 
     @PostMapping("/addCampaign")
-    public void addCampaign(Campaign campaign){
+    public ResponseEntity<String> addCampaign(@RequestBody Campaign campaign){
         this.campaignService.addCampaign(campaign);
+
+        return ResponseEntity.ok("Veri eklendi.");
     }
 
     @PutMapping("/makeActiveCampaign")
-    public void makeActiveCampaign(int id){
-        this.campaignService.makeActiveCampaign(id);
+    public ResponseEntity<String> makeActiveCampaign(@RequestParam int id){
+        campaignService.makeActiveCampaign(id);
+        return ResponseEntity.ok("Veri güncellendi.");
     }
 
+
     @PutMapping("/makeDeactivateCampaign")
-    public void makeDeactivateCampaign(int id){
-        this.campaignService.makeDeactivateCampaign(id);
+    public ResponseEntity<String> makeDeactivateCampaign(@RequestParam  int id){
+        campaignService.makeDeactivateCampaign(id);
+        return ResponseEntity.ok("Veri Güncellendi.");
     }
 
     @GetMapping("/get/dashboard/classifieds/statistics")
