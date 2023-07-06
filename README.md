@@ -2,9 +2,11 @@
 # Spring Boot : insuranceCampaignProject
 
 ## Introduction
-A demo Spring Boot project where users can enter campaigns, publis and unpublish their campaigns whenever they want, and implement many functions of the campaign.
+A demo Spring Boot project where users can enter campaigns, publis and unpublish their campaigns whenever they want, and implement many functions of the campaign with crud operations.
 
 ## Technologies
+- **Java**
+
 - **Spring Boot**
 
 - **PostgreSQL**
