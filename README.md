@@ -6,15 +6,11 @@ A demo Spring Boot project where users can enter campaigns, publis and unpublish
 
 ## Technologies
 - **Java**
-
 - **Spring Boot**
-
 - **PostgreSQL**
-
 - **JPA**
-
 - **JUnit**
-
+- **Maven**
 - **Swagger**
 
 ### Maven Dependencies
