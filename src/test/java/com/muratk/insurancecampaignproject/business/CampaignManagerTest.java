@@ -36,7 +36,7 @@ class CampaignManagerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    CampaignManager campaignManager;
+    private CampaignManager campaignManager;
 
     @Autowired
     private WebApplicationContext webApplicationContext;
