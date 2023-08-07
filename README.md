@@ -7,7 +7,7 @@ A demo Spring Boot project where users can enter campaigns, publis and unpublish
 ## Technologies
 - **Java**
 - **Spring Boot**
-- **PostgreSQL**
+- **MySQL**
 - **JPA**
 - **JUnit**
 - **Maven**
