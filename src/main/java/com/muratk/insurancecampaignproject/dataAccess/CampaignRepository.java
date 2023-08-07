@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CampaignRepository extends JpaRepository<Campaign,Integer> {
+public interface CampaignRepository extends JpaRepository<Campaign,Long> {
 
     List<Campaign> findByCampaignCategoryAndCampaignsAdvertTitleAndCampaignsDetails(String category, String title, String details );
 

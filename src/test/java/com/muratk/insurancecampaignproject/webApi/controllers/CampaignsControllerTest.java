@@ -41,7 +41,7 @@ class CampaignsControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        campaignsController = new CampaignsController(campaignService);
+        campaignsController = new CampaignsController();
     }
 
 
@@ -70,7 +70,7 @@ class CampaignsControllerTest {
 
     @Test
     void TestMakeActiveCampaign() {
-        int campaignId = 1;
+        Long campaignId = 1L;
 
         // Act
         ResponseEntity<String> response = campaignsController.makeActiveCampaign(campaignId);
@@ -83,7 +83,7 @@ class CampaignsControllerTest {
 
     @Test
     void TestMakeDeactivateCampaign() {
-        int campaignId = 1;
+        Long campaignId = 1L;
 
         ResponseEntity<String> response = campaignsController.makeDeactivateCampaign(campaignId);
 

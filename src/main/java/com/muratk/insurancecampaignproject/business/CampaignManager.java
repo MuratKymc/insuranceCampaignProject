@@ -2,12 +2,16 @@ package com.muratk.insurancecampaignproject.business;
 
 import com.muratk.insurancecampaignproject.dataAccess.CampaignRepository;
 import com.muratk.insurancecampaignproject.entities.Campaign;
+import com.muratk.insurancecampaignproject.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -22,6 +26,12 @@ public class CampaignManager implements CampaignService {
         List<Campaign> campaigns = campaignRepository.findAll();
         return campaigns;
     }
+
+    @Override
+    public Optional<Campaign> getCampaignById(Long id) {
+        return campaignRepository.findById(id);
+    }
+
 
     //kampanya ekleme (create)
     @Override
@@ -54,7 +64,7 @@ public class CampaignManager implements CampaignService {
 
     //kampanya aktive etme (update)
     @Override
-    public Campaign makeActiveCampaign(int id) {
+    public Campaign makeActiveCampaign(Long id) {
 
         Campaign campaign1 = campaignRepository.findById(id).get();
 
@@ -66,7 +76,7 @@ public class CampaignManager implements CampaignService {
 
     //kampanya deaktive etme (update)
     @Override
-    public Campaign makeDeactivateCampaign(int id) {
+    public Campaign makeDeactivateCampaign(Long id) {
 
         Campaign campaign1 = campaignRepository.findById(id).get();
 
@@ -81,6 +91,21 @@ public class CampaignManager implements CampaignService {
     public int countCampaignStatus(String campaignsStatus) {
         List<Campaign> campaigns = campaignRepository.findByCampaignsStatus(campaignsStatus);
         return campaigns.size();
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Boolean>> deleteCampaign(Long id) {
+
+        Campaign campaign = campaignRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Campaign not exist with id : " + id));
+
+
+        campaignRepository.delete(campaign);
+        Map<String , Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+
+
     }
 
 

@@ -71,7 +71,7 @@ class CampaignManagerTest {
     void testMakeActiveCampaign() throws Exception{
 
         Campaign campaign = new Campaign();
-        Campaign updatedCampaign = new Campaign(45,"testAdvertTitle","TestCampaignDetails","TestCampaignCategory","TestCampaignStatus");
+        Campaign updatedCampaign = new Campaign(5,"testAdvertTitle","TestCampaignDetails","TestCampaignCategory","TestCampaignStatus");
 
         mockMvc.perform(MockMvcRequestBuilders.put("/api/campaigns/makeActiveCampaign",updatedCampaign.getCampaignsStatus()));
     }
